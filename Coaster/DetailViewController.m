@@ -7,6 +7,9 @@
 //
 
 #import "DetailViewController.h"
+#import "AppDelegate.h"
+#import "Log.h"
+#import "Report.h"
 #import "Konashi.h"
 #import "SVProgressHUD.h"
 
@@ -32,7 +35,15 @@ const float kAnalogReadInterval = 10.0f;
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    _appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    
+    _report = (Report *) [NSEntityDescription insertNewObjectForEntityForName:@"Report" inManagedObjectContext:_appDelegate.managedObjectContext];
+    _report.timestamp = [NSDate date];
+    
     [Konashi addObserver:self selector:@selector(analogValueUpdated) name:KONASHI_EVENT_UPDATE_ANALOG_VALUE_AIO2];
+    
+    UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(saveObjects)];
+    self.navigationItem.rightBarButtonItem = saveButton;
     
     [SVProgressHUD showWithStatus:@"Loading..."];
     
@@ -54,7 +65,14 @@ const float kAnalogReadInterval = 10.0f;
 
 - (void)analogValueUpdated
 {
-    [self addPoint:[Konashi analogRead:AIO2]];
+    NSInteger value = [Konashi analogRead:AIO2];
+    [self addPoint:value];
+    
+    // Logを作成する
+    Log *log = (Log *)[NSEntityDescription insertNewObjectForEntityForName:@"Log" inManagedObjectContext:_appDelegate.managedObjectContext];
+    log.voltage = (NSDecimalNumber *) [NSNumber numberWithInteger:value];
+    log.timestamp = [NSDate date];
+    [_report addLogsObject:log];
 }
 
 - (void)addPoint:(float)value
@@ -63,12 +81,20 @@ const float kAnalogReadInterval = 10.0f;
     [self.webView stringByEvaluatingJavaScriptFromString:jsString];
 }
 
+- (void)saveObjects
+{
+    [SVProgressHUD showSuccessWithStatus:@"Saved!"];
+    [_appDelegate saveContext];
+    [_timer invalidate];
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
 #pragma mark - UIWebViewDelegate
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
     [SVProgressHUD dismiss];
-    [NSTimer scheduledTimerWithTimeInterval:kAnalogReadInterval target:self selector:@selector(sendAnalogReadRequest) userInfo:nil repeats:YES];
+    _timer = [NSTimer scheduledTimerWithTimeInterval:kAnalogReadInterval target:self selector:@selector(sendAnalogReadRequest) userInfo:nil repeats:YES];
 }
 
 @end

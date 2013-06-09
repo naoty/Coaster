@@ -8,7 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DetailViewController : UIViewController <UIWebViewDelegate>
+@class AppDelegate;
+@class Report;
+
+@interface DetailViewController : UIViewController <UIWebViewDelegate> {
+    AppDelegate *_appDelegate;
+    Report *_report;
+    NSTimer *_timer;
+}
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 
