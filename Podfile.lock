@@ -1,8 +1,10 @@
 PODS:
   - konashi-ios-sdk (1.0.6)
+  - SVProgressHUD (0.9)
 
 DEPENDENCIES:
   - konashi-ios-sdk (from `git://github.com/YUKAI/konashi-ios-sdk`, branch `develop`)
+  - SVProgressHUD
 
 EXTERNAL SOURCES:
   konashi-ios-sdk:
@@ -11,5 +13,6 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   konashi-ios-sdk: ba9ad3b56f07e718c29f954a2dc1542603a23e9e
+  SVProgressHUD: 03d4845ec8e64591726428a08236c6a5489d45f8
 
 COCOAPODS: 0.20.2
