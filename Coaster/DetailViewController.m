@@ -8,6 +8,7 @@
 
 #import "DetailViewController.h"
 #import "AppDelegate.h"
+#import "MasterViewController.h"
 #import "Log.h"
 #import "Report.h"
 #import "Konashi.h"
@@ -35,10 +36,9 @@ const float kAnalogReadInterval = 10.0f;
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    _appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    NSLog(@"timestamp: %@", self.report.timestamp);
     
-    _report = (Report *) [NSEntityDescription insertNewObjectForEntityForName:@"Report" inManagedObjectContext:_appDelegate.managedObjectContext];
-    _report.timestamp = [NSDate date];
+    _appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     
     [Konashi addObserver:self selector:@selector(analogValueUpdated) name:KONASHI_EVENT_UPDATE_ANALOG_VALUE_AIO2];
     
@@ -72,7 +72,7 @@ const float kAnalogReadInterval = 10.0f;
     Log *log = (Log *)[NSEntityDescription insertNewObjectForEntityForName:@"Log" inManagedObjectContext:_appDelegate.managedObjectContext];
     log.voltage = (NSDecimalNumber *) [NSNumber numberWithInteger:value];
     log.timestamp = [NSDate date];
-    [_report addLogsObject:log];
+    [self.report addLogsObject:log];
 }
 
 - (void)addPoint:(float)value
@@ -86,6 +86,7 @@ const float kAnalogReadInterval = 10.0f;
     [SVProgressHUD showSuccessWithStatus:@"Saved!"];
     [_appDelegate saveContext];
     [_timer invalidate];
+    [self.masterViewController reloadReports];
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 

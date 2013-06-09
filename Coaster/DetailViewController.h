@@ -9,14 +9,17 @@
 #import <UIKit/UIKit.h>
 
 @class AppDelegate;
+@class MasterViewController;
 @class Report;
 
-@interface DetailViewController : UIViewController <UIWebViewDelegate> {
+@interface DetailViewController : UIViewController <UIWebViewDelegate>
+{
     AppDelegate *_appDelegate;
-    Report *_report;
     NSTimer *_timer;
 }
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (nonatomic) Report *report;
+@property (nonatomic) MasterViewController *masterViewController;
 
 @end

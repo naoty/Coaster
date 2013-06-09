@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@class AppDelegate;
+
 @interface MasterViewController : UITableViewController
+{
+    AppDelegate *_appDelegate;
+    NSMutableArray *_reports;
+    NSDateFormatter *_dateFormatter;
+}
+
+- (void)reloadReports;
 
 @end

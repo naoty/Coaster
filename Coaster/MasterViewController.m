@@ -8,6 +8,8 @@
 
 #import "MasterViewController.h"
 #import "DetailViewController.h"
+#import "AppDelegate.h"
+#import "Report.h"
 #import "Konashi.h"
 #import "SVProgressHUD.h"
 
@@ -29,12 +31,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    _appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    
+    [self initializeReports];
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    _dateFormatter = [[NSDateFormatter alloc] init];
+    [_dateFormatter setTimeStyle:NSDateFormatterMediumStyle];
+    [_dateFormatter setDateStyle:NSDateFormatterMediumStyle];
     
     [Konashi initialize];
     [Konashi addObserver:self selector:@selector(peripheralFound) name:KONASHI_EVENT_PERIPHERAL_FOUND];
@@ -49,6 +53,31 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)initializeReports
+{
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    
+    // フェッチするエンティティを指定する
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Report" inManagedObjectContext:_appDelegate.managedObjectContext];
+    [request setEntity:entity];
+    
+    // ソート順を指定する
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"timestamp" ascending:NO];
+    [request setSortDescriptors:@[sortDescriptor]];
+    
+    // フェッチを実行する
+    NSError *error = nil;
+    _reports = [[_appDelegate.managedObjectContext executeFetchRequest:request error:&error] mutableCopy];
+    if (_reports == nil)
+        _reports = [NSMutableArray array];
+}
+
+- (void)reloadReports
+{
+    [self initializeReports];
+    [self.tableView reloadData];
 }
 
 - (void)addButtonTapped
@@ -73,6 +102,30 @@
     [self performSegueWithIdentifier:@"DetailSegue" sender:self];
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if (![segue.identifier isEqualToString:@"DetailSegue"]) {
+        return;
+    }
+    
+    Report *report;
+    
+    // セルを選択した場合はそのセルのreportを取得する
+    if ([sender isKindOfClass:[UITableViewCell class]]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        report = _reports[indexPath.row];
+    }
+    // 新規作成ボタンを押した場合はreportオブジェクトを新規作成する
+    else {
+        report = (Report *) [NSEntityDescription insertNewObjectForEntityForName:@"Report" inManagedObjectContext:_appDelegate.managedObjectContext];
+        report.timestamp = [NSDate date];
+    }
+    
+    DetailViewController *controller = (DetailViewController *) segue.destinationViewController;
+    controller.report = report;
+    controller.masterViewController = self;
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -82,7 +135,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return [_reports count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -90,7 +143,8 @@
     static NSString *CellIdentifier = @"LogCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    // Configure the cell...
+    Report *report = (Report *) _reports[indexPath.row];
+    cell.textLabel.text = [_dateFormatter stringFromDate:report.timestamp];
     
     return cell;
 }
@@ -138,13 +192,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
 }
 
 @end
