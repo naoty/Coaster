@@ -1,0 +1,15 @@
+PODS:
+  - konashi-ios-sdk (1.0.6)
+
+DEPENDENCIES:
+  - konashi-ios-sdk (from `git://github.com/YUKAI/konashi-ios-sdk`, branch `develop`)
+
+EXTERNAL SOURCES:
+  konashi-ios-sdk:
+    :branch: develop
+    :git: git://github.com/YUKAI/konashi-ios-sdk
+
+SPEC CHECKSUMS:
+  konashi-ios-sdk: ba9ad3b56f07e718c29f954a2dc1542603a23e9e
+
+COCOAPODS: 0.20.2
