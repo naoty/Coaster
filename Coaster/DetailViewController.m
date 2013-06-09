@@ -8,12 +8,15 @@
 
 #import "DetailViewController.h"
 #import "Konashi.h"
+#import "SVProgressHUD.h"
 
 @interface DetailViewController ()
 
 @end
 
 @implementation DetailViewController
+
+const float kAnalogReadInterval = 10.0f;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -31,7 +34,11 @@
     
     [Konashi addObserver:self selector:@selector(analogValueUpdated) name:KONASHI_EVENT_UPDATE_ANALOG_VALUE_AIO2];
     
-    [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(sendAnalogReadRequest) userInfo:nil repeats:YES];
+    [SVProgressHUD showWithStatus:@"Loading..."];
+    
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"chart" ofType:@"html"];
+    NSString *htmlText = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+    [self.webView loadHTMLString:htmlText baseURL:[NSURL fileURLWithPath:path]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -47,7 +54,21 @@
 
 - (void)analogValueUpdated
 {
-    NSLog(@"FSR: %d", [Konashi analogRead:AIO2]);
+    [self addPoint:[Konashi analogRead:AIO2]];
+}
+
+- (void)addPoint:(float)value
+{
+    NSString *jsString = [NSString stringWithFormat:@"window.addPoint(%f)", value];
+    [self.webView stringByEvaluatingJavaScriptFromString:jsString];
+}
+
+#pragma mark - UIWebViewDelegate
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    [SVProgressHUD dismiss];
+    [NSTimer scheduledTimerWithTimeInterval:kAnalogReadInterval target:self selector:@selector(sendAnalogReadRequest) userInfo:nil repeats:YES];
 }
 
 @end

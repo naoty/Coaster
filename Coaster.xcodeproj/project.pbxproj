@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		3DDB422817643F84006878D4 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDB422717643F84006878D4 /* DetailViewController.m */; };
+		3DDB422A17646516006878D4 /* chart.html in Resources */ = {isa = PBXBuildFile; fileRef = 3DDB422917646516006878D4 /* chart.html */; };
+		3DDB422C176468C5006878D4 /* chart.js in Sources */ = {isa = PBXBuildFile; fileRef = 3DDB422B176468C5006878D4 /* chart.js */; };
+		3DDB422E176468CF006878D4 /* jquery.min.js in Sources */ = {isa = PBXBuildFile; fileRef = 3DDB422D176468CF006878D4 /* jquery.min.js */; };
+		3DDB4230176468D7006878D4 /* highcharts.js in Sources */ = {isa = PBXBuildFile; fileRef = 3DDB422F176468D7006878D4 /* highcharts.js */; };
+		3DDB423117646A9B006878D4 /* jquery.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 3DDB422D176468CF006878D4 /* jquery.min.js */; };
+		3DDB423217646AA0006878D4 /* chart.js in Resources */ = {isa = PBXBuildFile; fileRef = 3DDB422B176468C5006878D4 /* chart.js */; };
+		3DDB423317646AA5006878D4 /* highcharts.js in Resources */ = {isa = PBXBuildFile; fileRef = 3DDB422F176468D7006878D4 /* highcharts.js */; };
 		3DE98735176437F800BACBF4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE98734176437F800BACBF4 /* UIKit.framework */; };
 		3DE98737176437F800BACBF4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE98736176437F800BACBF4 /* Foundation.framework */; };
 		3DE98739176437F800BACBF4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE98738176437F800BACBF4 /* CoreGraphics.framework */; };
@@ -28,6 +35,10 @@
 		0BFF64F6E26447FBBB5F28E2 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		3DDB422617643F84006878D4 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		3DDB422717643F84006878D4 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		3DDB422917646516006878D4 /* chart.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = chart.html; sourceTree = "<group>"; };
+		3DDB422B176468C5006878D4 /* chart.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = chart.js; sourceTree = "<group>"; };
+		3DDB422D176468CF006878D4 /* jquery.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = jquery.min.js; sourceTree = "<group>"; };
+		3DDB422F176468D7006878D4 /* highcharts.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = highcharts.js; sourceTree = "<group>"; };
 		3DE98731176437F800BACBF4 /* Coaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Coaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DE98734176437F800BACBF4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3DE98736176437F800BACBF4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -100,10 +111,14 @@
 			children = (
 				3DE98745176437F800BACBF4 /* AppDelegate.h */,
 				3DE98746176437F800BACBF4 /* AppDelegate.m */,
+				3DDB422917646516006878D4 /* chart.html */,
+				3DDB422B176468C5006878D4 /* chart.js */,
 				3DE9874E176437F800BACBF4 /* Coaster.xcdatamodeld */,
 				3DDB422617643F84006878D4 /* DetailViewController.h */,
 				3DDB422717643F84006878D4 /* DetailViewController.m */,
+				3DDB422F176468D7006878D4 /* highcharts.js */,
 				3DE98756176438D300BACBF4 /* iPhone.storyboard */,
+				3DDB422D176468CF006878D4 /* jquery.min.js */,
 				3DE98758176439DE00BACBF4 /* MasterViewController.h */,
 				3DE98759176439DE00BACBF4 /* MasterViewController.m */,
 				3DE9873D176437F800BACBF4 /* Supporting Files */,
@@ -178,11 +193,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DDB423317646AA5006878D4 /* highcharts.js in Resources */,
+				3DDB423217646AA0006878D4 /* chart.js in Resources */,
+				3DDB423117646A9B006878D4 /* jquery.min.js in Resources */,
 				3DE98741176437F800BACBF4 /* InfoPlist.strings in Resources */,
 				3DE98749176437F800BACBF4 /* Default.png in Resources */,
 				3DE9874B176437F800BACBF4 /* Default@2x.png in Resources */,
 				3DE9874D176437F800BACBF4 /* Default-568h@2x.png in Resources */,
 				3DE98757176438D300BACBF4 /* iPhone.storyboard in Resources */,
+				3DDB422A17646516006878D4 /* chart.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,6 +248,9 @@
 				3DE98750176437F800BACBF4 /* Coaster.xcdatamodeld in Sources */,
 				3DE9875A176439DE00BACBF4 /* MasterViewController.m in Sources */,
 				3DDB422817643F84006878D4 /* DetailViewController.m in Sources */,
+				3DDB422C176468C5006878D4 /* chart.js in Sources */,
+				3DDB422E176468CF006878D4 /* jquery.min.js in Sources */,
+				3DDB4230176468D7006878D4 /* highcharts.js in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
