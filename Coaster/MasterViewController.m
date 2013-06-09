@@ -7,6 +7,7 @@
 //
 
 #import "MasterViewController.h"
+#import "DetailViewController.h"
 #import "Konashi.h"
 #import "SVProgressHUD.h"
 
@@ -69,6 +70,7 @@
 - (void)ready
 {
     [SVProgressHUD showSuccessWithStatus:@"Connected!"];
+    [self performSegueWithIdentifier:@"DetailSegue" sender:self];
 }
 
 #pragma mark - Table view data source

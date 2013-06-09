@@ -13,14 +13,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LogCell" id="i62-Yt-bPv">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LogCell" id="i62-Yt-bPv">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <connections>
+                                    <segue destination="a1c-8B-56N" kind="push" identifier="DetailSegue" id="vNn-sg-eFh"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                     </tableView>
@@ -29,6 +32,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vXA-8m-sjB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="867" y="128"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="nb4-aF-Lnf">
+            <objects>
+                <viewController id="a1c-8B-56N" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0Ww-VQ-DFd">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="RBd-Kq-2QN"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iDS-LY-1HE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1389" y="128"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="43u-Cg-0u0">

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3DDB422817643F84006878D4 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDB422717643F84006878D4 /* DetailViewController.m */; };
 		3DE98735176437F800BACBF4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE98734176437F800BACBF4 /* UIKit.framework */; };
 		3DE98737176437F800BACBF4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE98736176437F800BACBF4 /* Foundation.framework */; };
 		3DE98739176437F800BACBF4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE98738176437F800BACBF4 /* CoreGraphics.framework */; };
@@ -25,6 +26,8 @@
 
 /* Begin PBXFileReference section */
 		0BFF64F6E26447FBBB5F28E2 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		3DDB422617643F84006878D4 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		3DDB422717643F84006878D4 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		3DE98731176437F800BACBF4 /* Coaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Coaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DE98734176437F800BACBF4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3DE98736176437F800BACBF4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -98,6 +101,8 @@
 				3DE98745176437F800BACBF4 /* AppDelegate.h */,
 				3DE98746176437F800BACBF4 /* AppDelegate.m */,
 				3DE9874E176437F800BACBF4 /* Coaster.xcdatamodeld */,
+				3DDB422617643F84006878D4 /* DetailViewController.h */,
+				3DDB422717643F84006878D4 /* DetailViewController.m */,
 				3DE98756176438D300BACBF4 /* iPhone.storyboard */,
 				3DE98758176439DE00BACBF4 /* MasterViewController.h */,
 				3DE98759176439DE00BACBF4 /* MasterViewController.m */,
@@ -223,6 +228,7 @@
 				3DE98747176437F800BACBF4 /* AppDelegate.m in Sources */,
 				3DE98750176437F800BACBF4 /* Coaster.xcdatamodeld in Sources */,
 				3DE9875A176439DE00BACBF4 /* MasterViewController.m in Sources */,
+				3DDB422817643F84006878D4 /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
