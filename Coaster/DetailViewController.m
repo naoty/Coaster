@@ -7,6 +7,7 @@
 //
 
 #import "DetailViewController.h"
+#import "Konashi.h"
 
 @interface DetailViewController ()
 
@@ -27,12 +28,26 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    [Konashi addObserver:self selector:@selector(analogValueUpdated) name:KONASHI_EVENT_UPDATE_ANALOG_VALUE_AIO2];
+    
+    [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(sendAnalogReadRequest) userInfo:nil repeats:YES];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)sendAnalogReadRequest
+{
+    [Konashi analogReadRequest:AIO2];
+}
+
+- (void)analogValueUpdated
+{
+    NSLog(@"FSR: %d", [Konashi analogRead:AIO2]);
 }
 
 @end
