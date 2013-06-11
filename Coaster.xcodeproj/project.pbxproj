@@ -10,6 +10,7 @@
 		3D4BF76217649653007B8C0A /* Report.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4BF76117649653007B8C0A /* Report.m */; };
 		3D4BF76517649674007B8C0A /* Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4BF76417649674007B8C0A /* Log.m */; };
 		3D8774731766406E00CD17D0 /* NSManagedObject+isNew.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D8774721766406E00CD17D0 /* NSManagedObject+isNew.m */; };
+		3D87747517677FE400CD17D0 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D87747417677FE400CD17D0 /* AudioToolbox.framework */; };
 		3DDB422817643F84006878D4 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDB422717643F84006878D4 /* DetailViewController.m */; };
 		3DDB422A17646516006878D4 /* chart.html in Resources */ = {isa = PBXBuildFile; fileRef = 3DDB422917646516006878D4 /* chart.html */; };
 		3DDB422C176468C5006878D4 /* chart.js in Sources */ = {isa = PBXBuildFile; fileRef = 3DDB422B176468C5006878D4 /* chart.js */; };
@@ -42,6 +43,7 @@
 		3D4BF76417649674007B8C0A /* Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Log.m; sourceTree = "<group>"; };
 		3D8774711766406E00CD17D0 /* NSManagedObject+isNew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+isNew.h"; sourceTree = "<group>"; };
 		3D8774721766406E00CD17D0 /* NSManagedObject+isNew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+isNew.m"; sourceTree = "<group>"; };
+		3D87747417677FE400CD17D0 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		3DDB422617643F84006878D4 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		3DDB422717643F84006878D4 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		3DDB422917646516006878D4 /* chart.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = chart.html; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D87747517677FE400CD17D0 /* AudioToolbox.framework in Frameworks */,
 				3DE98735176437F800BACBF4 /* UIKit.framework in Frameworks */,
 				3DE98737176437F800BACBF4 /* Foundation.framework in Frameworks */,
 				3DE98739176437F800BACBF4 /* CoreGraphics.framework in Frameworks */,
@@ -106,11 +109,12 @@
 		3DE98733176437F800BACBF4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3DE98734176437F800BACBF4 /* UIKit.framework */,
-				3DE98736176437F800BACBF4 /* Foundation.framework */,
-				3DE98738176437F800BACBF4 /* CoreGraphics.framework */,
+				3D87747417677FE400CD17D0 /* AudioToolbox.framework */,
 				3DE9873A176437F800BACBF4 /* CoreData.framework */,
+				3DE98738176437F800BACBF4 /* CoreGraphics.framework */,
+				3DE98736176437F800BACBF4 /* Foundation.framework */,
 				B497B3B1EAF54CD9A235312B /* libPods.a */,
+				3DE98734176437F800BACBF4 /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

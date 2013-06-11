@@ -15,13 +15,19 @@
 #import "SVProgressHUD.h"
 #import "NSManagedObject+isNew.h"
 
+#import <AudioToolbox/AudioServices.h>
+
 @interface DetailViewController ()
 
 @end
 
 @implementation DetailViewController
 
+// センサーの値を取得する間隔
 const float kAnalogReadInterval = 10.0f;
+
+// バイブレーションを動作させる閾値
+const NSInteger kThreshold = 1000;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -71,6 +77,12 @@ const float kAnalogReadInterval = 10.0f;
 - (void)analogValueUpdated
 {
     NSInteger value = [Konashi analogRead:AIO2];
+    
+    // 閾値を超えた場合はバイブを動作させる
+    if (value > kThreshold) {
+        AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+    }
+    
     [self addPoint:value];
     
     // Logを作成する
