@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3D4BF76217649653007B8C0A /* Report.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4BF76117649653007B8C0A /* Report.m */; };
 		3D4BF76517649674007B8C0A /* Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4BF76417649674007B8C0A /* Log.m */; };
+		3D8774731766406E00CD17D0 /* NSManagedObject+isNew.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D8774721766406E00CD17D0 /* NSManagedObject+isNew.m */; };
 		3DDB422817643F84006878D4 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDB422717643F84006878D4 /* DetailViewController.m */; };
 		3DDB422A17646516006878D4 /* chart.html in Resources */ = {isa = PBXBuildFile; fileRef = 3DDB422917646516006878D4 /* chart.html */; };
 		3DDB422C176468C5006878D4 /* chart.js in Sources */ = {isa = PBXBuildFile; fileRef = 3DDB422B176468C5006878D4 /* chart.js */; };
@@ -39,6 +40,8 @@
 		3D4BF76117649653007B8C0A /* Report.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Report.m; sourceTree = "<group>"; };
 		3D4BF76317649674007B8C0A /* Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Log.h; sourceTree = "<group>"; };
 		3D4BF76417649674007B8C0A /* Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Log.m; sourceTree = "<group>"; };
+		3D8774711766406E00CD17D0 /* NSManagedObject+isNew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+isNew.h"; sourceTree = "<group>"; };
+		3D8774721766406E00CD17D0 /* NSManagedObject+isNew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+isNew.m"; sourceTree = "<group>"; };
 		3DDB422617643F84006878D4 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		3DDB422717643F84006878D4 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		3DDB422917646516006878D4 /* chart.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = chart.html; sourceTree = "<group>"; };
@@ -120,17 +123,19 @@
 				3DDB422917646516006878D4 /* chart.html */,
 				3DDB422B176468C5006878D4 /* chart.js */,
 				3DE9874E176437F800BACBF4 /* Coaster.xcdatamodeld */,
-				3D4BF76317649674007B8C0A /* Log.h */,
-				3D4BF76417649674007B8C0A /* Log.m */,
-				3D4BF76017649653007B8C0A /* Report.h */,
-				3D4BF76117649653007B8C0A /* Report.m */,
 				3DDB422617643F84006878D4 /* DetailViewController.h */,
 				3DDB422717643F84006878D4 /* DetailViewController.m */,
 				3DDB422F176468D7006878D4 /* highcharts.js */,
 				3DE98756176438D300BACBF4 /* iPhone.storyboard */,
 				3DDB422D176468CF006878D4 /* jquery.min.js */,
+				3D4BF76317649674007B8C0A /* Log.h */,
+				3D4BF76417649674007B8C0A /* Log.m */,
 				3DE98758176439DE00BACBF4 /* MasterViewController.h */,
 				3DE98759176439DE00BACBF4 /* MasterViewController.m */,
+				3D8774711766406E00CD17D0 /* NSManagedObject+isNew.h */,
+				3D8774721766406E00CD17D0 /* NSManagedObject+isNew.m */,
+				3D4BF76017649653007B8C0A /* Report.h */,
+				3D4BF76117649653007B8C0A /* Report.m */,
 				3DE9873D176437F800BACBF4 /* Supporting Files */,
 			);
 			path = Coaster;
@@ -263,6 +268,7 @@
 				3DDB4230176468D7006878D4 /* highcharts.js in Sources */,
 				3D4BF76217649653007B8C0A /* Report.m in Sources */,
 				3D4BF76517649674007B8C0A /* Log.m in Sources */,
+				3D8774731766406E00CD17D0 /* NSManagedObject+isNew.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

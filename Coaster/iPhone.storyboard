@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
-        <!--Master View Controller-->
+        <!--Master View Controller - Reports-->
         <scene sceneID="S3O-Cc-gMv">
             <objects>
                 <tableViewController id="Yf8-pi-1Yy" customClass="MasterViewController" sceneMemberID="viewController">
@@ -27,7 +27,7 @@
                             </tableViewCell>
                         </prototypes>
                     </tableView>
-                    <navigationItem key="navigationItem" id="af1-V7-0b3"/>
+                    <navigationItem key="navigationItem" title="Reports" id="af1-V7-0b3"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vXA-8m-sjB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

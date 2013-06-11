@@ -30,8 +30,14 @@ window.chart = new Highcharts.Chart({
     }]
 });
 
-window.addPoint = function (value) {
-    var point = [Date.now(), parseFloat(value)];
+window.addPoint = function (value, datetime) {
+    if (datetime == undefined) {
+        datetime = Date.now();
+    } else {
+        datetime = Date.parse(datetime);
+    }
+
+    var point = [datetime, parseFloat(value)];
     window.chart.series[0].addPoint(point, true, false);
 };
 

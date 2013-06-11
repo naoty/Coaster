@@ -6,12 +6,12 @@
         <attribute name="weight" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <relationship name="report" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Report" inverseName="logs" inverseEntity="Report" syncable="YES"/>
     </entity>
-    <entity name="Report" representedClassName="Record" syncable="YES">
+    <entity name="Report" representedClassName="Report" syncable="YES">
         <attribute name="timestamp" optional="YES" attributeType="Date" syncable="YES"/>
         <relationship name="logs" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Log" inverseName="report" inverseEntity="Log" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Log" positionX="160" positionY="192" width="128" height="103"/>
-        <element name="Report" positionX="-38" positionY="192" width="128" height="73"/>
+        <element name="Log" positionX="160" positionY="192" width="128" height="105"/>
+        <element name="Report" positionX="-38" positionY="192" width="128" height="75"/>
     </elements>
 </model>

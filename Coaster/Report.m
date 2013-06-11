@@ -14,4 +14,10 @@
 @dynamic timestamp;
 @dynamic logs;
 
+- (NSArray *)sortedLogs
+{
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"timestamp" ascending:YES];
+    return [self.logs sortedArrayUsingDescriptors:@[sortDescriptor]];
+}
+
 @end

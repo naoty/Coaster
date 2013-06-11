@@ -16,6 +16,7 @@
 {
     AppDelegate *_appDelegate;
     NSTimer *_timer;
+    NSDateFormatter *_dateFormatter;
 }
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;

@@ -14,6 +14,9 @@
 
 @property (nonatomic, retain) NSDate * timestamp;
 @property (nonatomic, retain) NSSet *logs;
+
+- (NSArray *)sortedLogs;
+
 @end
 
 @interface Report (CoreDataGeneratedAccessors)
