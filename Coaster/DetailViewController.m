@@ -85,12 +85,18 @@ const float kRotateLEDInterval = 0.01f;
     NSString *path = [[NSBundle mainBundle] pathForResource:@"chart" ofType:@"html"];
     NSString *htmlText = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
     [self.webView loadHTMLString:htmlText baseURL:[NSURL fileURLWithPath:path]];
+    
+    // スリープしないようにする
+    [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     // 移動する前にLEDタイマーを終了させる
     [_rotateLEDTimer invalidate];
+    
+    // スリープするように戻す
+    [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
     
     [super viewWillDisappear:animated];
 }
