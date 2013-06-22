@@ -22,7 +22,7 @@ window.chart = new Highcharts.Chart({
             text: "v out"
         },
         min: 0,
-        max: 1024
+        max: 400
     },
     series: [{
         name: "AIO2",

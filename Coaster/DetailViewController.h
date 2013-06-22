@@ -15,7 +15,11 @@
 @interface DetailViewController : UIViewController <UIWebViewDelegate>
 {
     AppDelegate *_appDelegate;
-    NSTimer *_timer;
+    NSTimer *_analogReadTimer;
+    BOOL _isLessPressure;
+    NSTimer *_rotateLEDTimer;
+    NSInteger _rotateCounter;
+    NSArray *_pios;
     NSDateFormatter *_dateFormatter;
 }
 
